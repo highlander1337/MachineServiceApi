@@ -1,0 +1,72 @@
+@MachineServiceApi_HostAddress = http://localhost:5026
+
+###
+// Add a new employer
+POST {{MachineServiceApi_HostAddress}}/api/v1/employers
+Content-Type: application/json
+
+{
+    "Name": "User C"
+}
+
+// Get all employers
+###
+GET {{MachineServiceApi_HostAddress}}/api/v1/employers
+Accept: application/json
+
+### 
+// Add a new client
+POST {{MachineServiceApi_HostAddress}}/api/v1/clients
+Content-Type: application/json
+
+{
+    "Name": "Client E"
+}
+
+// Get all clients
+###
+GET {{MachineServiceApi_HostAddress}}/api/v1/clients
+Accept: application/json
+
+
+
+// Add a new machine
+###
+POST {{MachineServiceApi_HostAddress}}/api/v1/clients/1/machines
+Content-Type: application/json
+
+{
+    "SerialNumber": "SN-005",
+    "Model": "MIDEA"
+}
+
+// Get all machines from a client id
+###
+GET  {{MachineServiceApi_HostAddress}}/api/v1/clients/3/machines
+Accept: application/json
+
+
+// Delete a machine from a client id
+###
+DELETE {{MachineServiceApi_HostAddress}}/api/v1/clients/1/machines/1
+Accept: application/json
+
+
+// Add a new history
+###
+POST {{MachineServiceApi_HostAddress}}/api/v1/clients/3/machines/2/employer/2/service-history
+Content-Type: application/json
+
+{
+    "ServiceTypeCode": "FIX",
+    "ServiceDate": "2026-03-21T17:42:10",
+    "Details": "Concerto realizado com sucesso pelo operador X, certificado Y."
+}
+
+###
+GET {{MachineServiceApi_HostAddress}}/api/v1/clients/3/machines/2/employer/2/service-history
+Accept: application/json
+
+###
+DELETE {{MachineServiceApi_HostAddress}}/api/v1/clients/3/machines/2/employer/2/service-history/9
+Accept: application/json

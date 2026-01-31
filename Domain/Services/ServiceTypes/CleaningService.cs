@@ -1,0 +1,13 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+
+namespace MachineServiceApi.Domain.Services.ServiceTypes
+{
+    public class CleaningService : ServiceType
+    {
+
+    }
+}
